@@ -81,7 +81,7 @@ Content-Type: {{contentType}}
   "password": "password123"
 }
 
-@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdGVzdC5jb20iLCJpYXQiOjE3Nzc2MDM3OTIsImV4cCI6MTc3NzY0Njk5Mn0.Z3M0oUSOWdqfIaIY2W25Z1A571X3YX_egnf2vJaVi1Y
+@token = paste_token_dari_login_disini
 
 ### Get Profile
 GET {{baseUrl}}/profile
