@@ -1,0 +1,16 @@
+@baseUrl = http://localhost:3000
+@token = paste_token_dari_login_disini
+
+### Get Banner - public (no token needed)
+GET {{baseUrl}}/banner
+
+### Get Services - private
+GET {{baseUrl}}/services
+Authorization: Bearer {{token}}
+
+### Get Services - no token
+GET {{baseUrl}}/services
+
+### Get Services - invalid token
+GET {{baseUrl}}/services
+Authorization: Bearer invalidtoken123

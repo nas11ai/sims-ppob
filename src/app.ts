@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import membershipRoutes from './modules/membership/membership.routes';
+import informationRoutes from './modules/information/information.routes';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.get('/health', (_req, res) => {
 
 // app routes
 app.use('/', membershipRoutes);
+app.use('/', informationRoutes);
 
 // 404 handler
 app.use((_req, res) => {
