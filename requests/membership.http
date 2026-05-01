@@ -1,0 +1,82 @@
+@baseUrl = http://localhost:3000
+@contentType = application/json
+
+### Register - success
+POST {{baseUrl}}/registration
+Content-Type: {{contentType}}
+
+{
+  "email": "user@test.com",
+  "first_name": "User",
+  "last_name": "Test",
+  "password": "password123"
+}
+
+### Register - email already exists
+POST {{baseUrl}}/registration
+Content-Type: {{contentType}}
+
+{
+  "email": "user@test.com",
+  "first_name": "User",
+  "last_name": "Test",
+  "password": "password123"
+}
+
+### Register - invalid email format
+POST {{baseUrl}}/registration
+Content-Type: {{contentType}}
+
+{
+  "email": "bukan-email",
+  "first_name": "User",
+  "last_name": "Test",
+  "password": "password123"
+}
+
+### Register - password too short
+POST {{baseUrl}}/registration
+Content-Type: {{contentType}}
+
+{
+  "email": "user2@test.com",
+  "first_name": "User",
+  "last_name": "Test",
+  "password": "123"
+}
+
+### Login - success
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "user@test.com",
+  "password": "password123"
+}
+
+### Login - wrong password
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "user@test.com",
+  "password": "wrongpassword"
+}
+
+### Login - email not found
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "tidakada@test.com",
+  "password": "password123"
+}
+
+### Login - invalid email format
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "email": "bukan-email",
+  "password": "password123"
+}
