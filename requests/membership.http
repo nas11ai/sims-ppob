@@ -80,3 +80,31 @@ Content-Type: {{contentType}}
   "email": "bukan-email",
   "password": "password123"
 }
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdGVzdC5jb20iLCJpYXQiOjE3Nzc2MDM3OTIsImV4cCI6MTc3NzY0Njk5Mn0.Z3M0oUSOWdqfIaIY2W25Z1A571X3YX_egnf2vJaVi1Y
+
+### Get Profile
+GET {{baseUrl}}/profile
+Authorization: Bearer {{token}}
+
+### Update Profile
+PUT {{baseUrl}}/profile/update
+Content-Type: {{contentType}}
+Authorization: Bearer {{token}}
+
+{
+  "first_name": "User Edited",
+  "last_name": "Test Edited"
+}
+
+### Update Profile Image
+PUT {{baseUrl}}/profile/image
+Authorization: Bearer {{token}}
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="photo.jpg"
+Content-Type: image/jpeg
+
+< ./files/photo.jpg
+--boundary--

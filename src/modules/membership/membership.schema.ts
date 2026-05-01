@@ -12,5 +12,11 @@ export const loginSchema = z.object({
   password: z.string().min(8, 'Password minimal 8 karakter'),
 });
 
+export const updateProfileSchema = z.object({
+  first_name: z.string().min(1, 'First name harus diisi'),
+  last_name: z.string().min(1, 'Last name harus diisi'),
+});
+
 export type RegisterDto = z.infer<typeof registerSchema>;
 export type LoginDto = z.infer<typeof loginSchema>;
+export type UpdateProfileDto = z.infer<typeof updateProfileSchema>;
