@@ -1,5 +1,5 @@
 @baseUrl = http://localhost:3000
-@token = paste_token_dari_login_disini
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdGVzdC5jb20iLCJpYXQiOjE3Nzc2MDM3OTIsImV4cCI6MTc3NzY0Njk5Mn0.Z3M0oUSOWdqfIaIY2W25Z1A571X3YX_egnf2vJaVi1Y
 
 ### Get Balance
 GET {{baseUrl}}/balance
@@ -39,3 +39,42 @@ Content-Type: application/json
 {
   "top_up_amount": 100000
 }
+
+### Transaction - success
+POST {{baseUrl}}/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "service_code": "PULSA"
+}
+
+### Transaction - service not found
+POST {{baseUrl}}/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "service_code": "INVALID_CODE"
+}
+
+### Transaction - insufficient balance
+POST {{baseUrl}}/transaction
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "service_code": "QURBAN"
+}
+
+### Transaction History - all records
+GET {{baseUrl}}/transaction/history
+Authorization: Bearer {{token}}
+
+### Transaction History - with limit & offset
+GET {{baseUrl}}/transaction/history?limit=3&offset=0
+Authorization: Bearer {{token}}
+
+### Transaction History - next page
+GET {{baseUrl}}/transaction/history?limit=3&offset=3
+Authorization: Bearer {{token}}
