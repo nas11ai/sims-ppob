@@ -1,0 +1,41 @@
+@baseUrl = http://localhost:3000
+@token = paste_token_dari_login_disini
+
+### Get Balance
+GET {{baseUrl}}/balance
+Authorization: Bearer {{token}}
+
+### Topup - success
+POST {{baseUrl}}/topup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "top_up_amount": 100000
+}
+
+### Topup - amount 0
+POST {{baseUrl}}/topup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "top_up_amount": 0
+}
+
+### Topup - amount negative
+POST {{baseUrl}}/topup
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "top_up_amount": -50000
+}
+
+### Topup - no token
+POST {{baseUrl}}/topup
+Content-Type: application/json
+
+{
+  "top_up_amount": 100000
+}
